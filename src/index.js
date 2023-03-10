@@ -2,8 +2,8 @@ const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
-const score = document.querySelector('.score');
-const timerDisplay = document.querySelector('.timerDisplay'); 
+const score = document.querySelector('#score');
+const timerDisplay = document.querySelector("timer"); 
 
 let time = 0;
 let timer;
@@ -175,13 +175,15 @@ function toggleVisibility(hole){
 *
 */
 function updateScore() {
-  let points = 0;
-  ++points;
-  score.textContent = points;
-  points ++;
-  
   // TODO: Write your code here
-
+  // Increment the points global variable by 1 point
+  ++points;
+  console.log('points', points);
+   // Update score.textContent with points.
+   console.log("SCORE");
+   console.log(score);
+  score.textContent = points;
+  //Return points;
   return points;
 }
 
@@ -194,8 +196,8 @@ function updateScore() {
 */
 function clearScore() {
   // TODO: Write your code here
-  //points = 0;
-  //score.textContent = points;
+  points = 0;
+  score.textContent = points;
   return points;
 }
 
@@ -232,12 +234,13 @@ function startTimer() {
 *
 */
 function whack(event) {
+  // TODO: Write your code here.
   console.log("whack!")
   updateScore();
 
-  // TODO: Write your code here.
+
   // call updateScore()
-  return points;
+  return points--;
 }
 
 /**
@@ -285,6 +288,7 @@ function stopGame(){
 *
 */
 function startGame(){
+  setEventListeners();
   setDuration(10);
   showUp();
   return "game started";
